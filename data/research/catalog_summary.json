@@ -1,0 +1,17 @@
+{
+  "archives": 37,
+  "rows": 20377,
+  "raw_row_categories": {
+    "candidate": 23252,
+    "conflicting_same_snapshot_identity": 2847,
+    "duplicate_capture": 28,
+    "duplicate_provider_alias": 810,
+    "excluded_provider": 1279767,
+    "invalid_numeric_field": 39,
+    "non_target_gpu": 361129
+  },
+  "keys": 1214,
+  "strict_keys": 1826,
+  "first_month": "2023-08",
+  "last_month": "2026-09"
+}

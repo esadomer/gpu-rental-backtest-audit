@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying working paper when using this research."
+title: "GPU Rental Backtest Audit"
+authors:
+  - family-names: "Kay"
+    given-names: "H. Esad"
+url: "https://github.com/esadomer/gpu-rental-backtest-audit"
+repository-code: "https://github.com/esadomer/gpu-rental-backtest-audit"
+date-released: 2026-10-28
+preferred-citation:
+  type: unpublished
+  title: "Forecasting Posted GPU Rental Prices from Public Catalogs: Information Timing, Service Identity, and Persistence"
+  authors:
+    - family-names: "Kay"
+      given-names: "H. Esad"
+  year: 2026
+  url: "https://github.com/esadomer/gpu-rental-backtest-audit/blob/main/output/pdf/gpu_rental_forecasting_v2.pdf"

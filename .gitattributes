@@ -1,0 +1,2 @@
+# Preserve exact bytes used by frozen protocol, input and code fingerprints.
+* -text

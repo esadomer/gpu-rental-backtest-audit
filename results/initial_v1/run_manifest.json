@@ -1,0 +1,40 @@
+{
+  "protocol_sha256": "6d3f44cede6f791542aeed2425f5325b85c01f0a2c3bf119e045f77b4a6574e5",
+  "panel": {
+    "archives": 37,
+    "rows": 21187,
+    "raw_row_categories": {
+      "candidate": 24062,
+      "conflicting_same_snapshot_identity": 2847,
+      "duplicate_capture": 28,
+      "excluded_provider": 1279767,
+      "invalid_numeric_field": 39,
+      "non_target_gpu": 361129
+    },
+    "keys": 1352,
+    "strict_keys": 1964,
+    "first_month": "2023-08",
+    "last_month": "2026-09"
+  },
+  "timing": {
+    "actual_eligible": 21313,
+    "nominal_eligible": 23076,
+    "matched_observed": 17065,
+    "nominal_future_predictor_fraction": 0.9873425139173747
+  },
+  "primary_eligible_cases": 22868,
+  "primary_observed_cases": 18226,
+  "repricing_records": 3857,
+  "repricing_provider_months": 98,
+  "python": "3.12.8",
+  "numpy": "2.3.1",
+  "pandas": "2.3.1",
+  "source_manifest_sha256": "bc8fa76cb124dde952bb5d936e307821fd8f3ee04515511aa5cedd971078e405",
+  "code_hashes": {
+    "scripts\\audit_data.py": "3901c119900e46903f0cec05d0ff3aa54d76593573e7c356c5bf579f34c70e4e",
+    "scripts\\catalog_panel.py": "95d1b312cb6d69e68eba9ffaaca3c84aa49610a93e614265fdb4107c024a0f2a",
+    "scripts\\fetch_catalogs.py": "cd4a506606222ccd3ac823f49943cec1445824a33827673c193ccb32d5450f4b",
+    "scripts\\fetch_sources.py": "9a9460482574f47db007be1e599eb6b38e2884e217e207569ab8d25122b219e0",
+    "scripts\\run_study.py": "14bca4dc7e23946649d8fdcf4fbce0f9331d97d022b52f7c363c31e4969e19dd"
+  }
+}

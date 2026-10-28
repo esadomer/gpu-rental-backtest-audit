@@ -1,0 +1,89 @@
+{
+  "version": "1.1",
+  "specified_at_utc": "2026-10-28T19:23:49.802687+00:00",
+  "status": "Specified after source audit and before forecast evaluation; not preregistered",
+  "author": "H. Esad Kay",
+  "data_end_month": "2026-09",
+  "evaluation_start_month": "2025-01",
+  "primary_origin_day": 8,
+  "horizons_months": [
+    1,
+    3,
+    6
+  ],
+  "minimum_history": 12,
+  "maximum_quote_age_days": 45,
+  "providers": [
+    "aws",
+    "azure",
+    "lambdalabs",
+    "datacrunch",
+    "nebius",
+    "oci",
+    "verda"
+  ],
+  "gpu_labels": [
+    "A100",
+    "H100",
+    "H200"
+  ],
+  "core_identity": [
+    "provider",
+    "location",
+    "instance_name",
+    "gpu_name",
+    "gpu_memory",
+    "gpu_count",
+    "cpu",
+    "memory",
+    "market"
+  ],
+  "strict_identity_additions": [
+    "disk_size",
+    "cpu_arch"
+  ],
+  "models": [
+    "persistence",
+    "drift",
+    "local_trend",
+    "damped_trend",
+    "pooled_ridge"
+  ],
+  "local_trend_window": 12,
+  "damping": 0.5,
+  "ridge_penalty": 0.1,
+  "ridge_training_minimum_history": 4,
+  "ridge_minimum_training_origins": 6,
+  "ridge_minimum_training_cases": 30,
+  "ridge_features": [
+    "last_log_return_per_month",
+    "log_trend_per_month",
+    "log_return_volatility",
+    "log_current_price",
+    "log_gpu_count",
+    "log_gpu_memory",
+    "spot_indicator"
+  ],
+  "forecast_log_return_bound": 2.302585092994046,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 27826,
+  "bootstrap_block_length": "max(3, horizon_months)",
+  "sensitivities": [
+    "six_observation_history",
+    "strict_identity",
+    "publication_plus_24_hours",
+    "day_one_timing_diagnostic",
+    "ridge_provider_holdout",
+    "provider_member_freshness"
+  ],
+  "primary_loss": "Provider-balanced mean absolute log error, aggregated by origin and then time",
+  "secondary_loss": "Provider-balanced mean absolute USD-per-GPU-hour error",
+  "excluded_sources_reason": {
+    "gcp": "Audited on-demand labels can contain discounted/spot SKU contamination; do not use retrospective price filters",
+    "runpod": "Historical secure/community tiers and label changes cannot be consistently distinguished from common fields",
+    "other": "No exact target GPU labels in the selected snapshots"
+  },
+  "headline_weighting": "Separate market/horizon; equal origin, equal provider within origin, equal key within provider-origin. GPU-specific cells reported separately.",
+  "ridge_weighting": "Equal origin; equal provider within origin; equal example within provider-origin. Weighted feature mean and variance.",
+  "bootstrap_minimum_blocks": 4
+}

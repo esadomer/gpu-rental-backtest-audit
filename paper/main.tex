@@ -1,0 +1,192 @@
+\documentclass[10pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,booktabs,graphicx,microtype,float}
+\usepackage[hidelinks]{hyperref}
+\usepackage{natbib}
+\setlength{\parskip}{2pt}
+\setlength{\emergencystretch}{2em}
+\input{tables/macros}
+\title{Forecasting Posted GPU Rental Prices from Public Catalogs:\\Information Timing, Service Identity, and Persistence}
+\author{H. Esad Kay}
+\date{October 28, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Backtests of public GPU rental catalogs can reward information that was unavailable at the forecast origin. In a paired month-start diagnostic, treating later archives as available at their nominal month-start reduces one-month on-demand persistence mean absolute log error from 0.0353 to 0.0205: a 42.0\% apparent improvement on identical matched forecast cases. This is an information-set distortion, not a better forecasting method. This study quantifies such evaluation risks using 37 public A100, H100 and H200 catalog snapshots from August 2023 to September 2026. A protocol specified before evaluation preserves observable service identity, archived availability proxies and missing outcomes, and compares five fixed methods at one-, three- and six-month horizons. The corrected panel contains \PanelRows{} service-month records; \ObservedCases{} of \EligibleCases{} eligible forecast cases have matching targets. Persistence has the lowest provider-balanced error in all six primary market--horizon comparisons, but 90.7\% of its balanced one-month on-demand targets are unchanged. Strict optional-field matching eliminates the six-month evaluation, and primary H200 six-month coverage is limited to four on-demand cases and no spot cases. The contribution is a controlled forecast-evaluation audit building on existing catalog-reconstruction work. Its results concern sampled catalog states, not executable transactions, a universally superior model or guaranteed historical market access.
+\end{abstract}
+
+\noindent\textbf{Keywords:} GPU rental prices; compute markets; rolling-origin forecasts; catalog data; information timing.\\
+\textbf{Research artifact:} working-paper draft; empirical data cutoff September 2026; source retrieval October 28, 2026.
+\\\textbf{Code, protocol and results:} \url{https://github.com/esadomer/gpu-rental-backtest-audit}.
+
+\section{Introduction}
+GPU rental services are economically heterogeneous. The same accelerator label can refer to a single-card virtual machine, a multi-GPU server, different host resources, or an interruptible service. A public hourly quote therefore describes a bundle and a set of conditions. Forecasting an aggregate price without preserving that identity risks treating a changed product as a price move.
+
+This paper asks a narrower question: \emph{how accurately can a future published GPU rental quote be predicted from earlier admissible catalog records for the same observable service?} It examines public evidence rather than access to proprietary transactions. The forecast object is the future state of a sampled aggregate catalog. It is not a claim that every quote was refreshed by its underlying provider, available for immediate execution, or first learned by the market at the catalog timestamp.
+
+The contribution is a controlled evaluation of how catalog measurement choices affect a rental-price backtest. In the clearest diagnostic, the same persistence rule appears to have 42.0\% lower mean absolute log error for one-month on-demand quotes when later information is incorrectly granted at month-start, holding the matched forecast cases fixed. Existing work already identifies timing, identity and staleness problems in GPU catalogs; this study carries those concerns through an explicit rolling forecast protocol and quantifies their consequences for errors and evaluable coverage. Its small, fixed model menu supplies reference comparisons. The empirical contribution does not depend on discovering a superior forecasting algorithm.
+
+Persistence is a demanding benchmark in this sample. Its advantage over the tested alternatives remains after removing repeated whole-provider states. That finding does not imply a universally unpredictable market: the sample is short, outcomes are conditional on service survival, catalogs may be stale, and the model menu is intentionally limited. A separate result is that strict optional-field matching sharply reduces usable history. The measurement constraints are part of the result, not preprocessing details to hide.
+
+\section{Related work and scope}
+GPU spot-price prediction predates the current accelerator generation. \citet{khan2022} compare autoregressive, ARIMA, exponential smoothing and GARCH methods. The present study does not reproduce that experiment or claim that these five simple specifications exhaust its models. It instead studies newer public multi-provider catalog records and the validity of their forecast information sets.
+
+The closest data predecessor is \citet{mittal2026}, whose public repository reconstructs cloud GPU price histories from versioned sources and documents source-specific measurement problems. Its pinned monthly panel supplies the archive identifiers used here. Forecast prices in this study are independently parsed from the original archives; the analysis does not adopt the predecessor's cleaned index, retrospective price filters or backfilled rows as point-in-time features. This distinction concerns research purpose, not a claim that a historical measurement dataset is defective. The public predecessor already discusses publication versus effective dates, late snapshots, stale members, entity resolution, matched-item indexes and survivorship, and uses publication-date filters in contemporaneous GPU-selection analysis. These ideas are not claimed as new here. The inspected public code and reports did not reveal the fixed rolling future-rental forecast experiment or the matched-case 42.0\% timing diagnostic reported here. A renewed audit on October 28, 2026 found the current public revision identical to the pinned release, but no accessible full manuscript; novelty relative to the described paper under review therefore remains uncertain. The project repository provides a path-level overlap audit.
+
+\citet{bandisu2026} study compute asset pricing and discuss the implications of non-storable compute for spot--futures relationships. The present catalog-forecast exercise neither estimates their risk premium nor replicates synthetic futures. The fact that public quotes can be predicted does not itself establish an implementable trading strategy. Rolling-origin evaluation and simple benchmarks follow standard forecasting practice \citep{hyndman2021}. Cross-sectional repetition and few time blocks motivate caution about conventional independent-observation inference \citep{cameron2015}.
+
+The original project also audited new physical GPU purchase prices. The examined retail histories did not establish historical condition and seller continuity for a comparable A100/H100/H200 panel. No physical-price variable or synthetic physical backtest is included here. The audit is retained in the accompanying research files rather than used to imply an identified purchase-to-rental relationship.
+
+\section{Data and admissible observations}
+\subsection{Archive construction and provenance}
+The evidence consists of 37 public \texttt{gpuhunt} ZIP archives \citep{gpuhunt}, selected by the monthly snapshot identifiers in a pinned revision of \citet{mittal2026}. The first is dated August 28, 2023; September 2023 is absent; the final archive is September 1, 2026. This is a retrospective selection of monthly snapshots, not a complete inventory of every file a historical user could have downloaded.
+
+For each archive, the manifest preserves its URL, retrieval time, SHA-256 checksum, embedded version and HTTP S3 Last-Modified timestamp. The latter is a proxy for availability of that archived object. It does not prove when public access was enabled, when a provider refreshed its underlying data, or the earliest time a market participant could know a price. All timing conclusions are conditional on this archival proxy. An additional 24-hour publication lag tests a small delay in access.
+
+The parser retains exact A100, H100 and H200 labels and separates their reported GPU memory. GH200, H100NVL and other labels are excluded. GCP and RunPod are excluded because the prior audit identifies unresolved historical price-classification or service-tier ambiguities in their common fields. These exclusions are based on metadata evidence, not future forecast performance. The retained economic providers are AWS, Azure, Lambda, DataCrunch/Verda, Nebius and OCI.
+
+DataCrunch and Verda appear as separate members in nine 2026 archives. Their entire normalized core offer tables are identical, and all 810 target-GPU Verda records exactly match DataCrunch. The provider's rebranding notice confirms corporate continuity \citep{verda2025}. The analysis retains the longer DataCrunch source history and rejects the duplicated Verda modeling records, preserving both members in the inventory. This factual correction was made after the first model run and is disclosed in the protocol amendment; the original protocol and initial summaries remain available. The alias relationship is also documented in the predecessor's public data notes. No service history is stitched across aliases.
+
+After removing 810 alias records, 2,847 conflicting same-snapshot identity records, 28 exact duplicate captures and 39 invalid-numeric target records, the resulting panel contains \PanelRows{} service-month records and \PanelKeys{} core identities. These are records, not independent market discoveries. Across the entire panel, \RepricingRows{} successive same-key records change price, occurring in \RepricingProviderMonths{} provider-months. Even a provider-month need not represent an independent economic shock.
+
+\subsection{Price and service identity}
+The price is the catalog's USD hourly instance quote divided by its GPU count. Provider-specific aggregation remains relevant: the predecessor documentation describes gpuhunt AWS spot quotes as the minimum across availability zones within a region, rather than a particular zone's executable quote. It includes host resources, and is not a bare accelerator rental or hardware resale value. The primary identity consists of provider, location, instance name, accelerator name and memory, GPU count, CPU count, host RAM, and spot/on-demand status. Numeric fields use exact canonical decimal strings; textual identifiers are trimmed without inferred aliases or case matching. A record containing a nonpositive or invalid required number is excluded. Multiple prices for the same key in one archive are rejected rather than resolved by selecting the cheapest offer.
+
+Disk size and CPU architecture appear inconsistently as the archive schema evolves. The primary key uses fields present from the earliest schema; a strict sensitivity adds both optional fields, preserving missing values as unknown and breaking continuity when reporting changes. Unobserved networking, storage performance, contract duration, support, taxes and physical form factors may still differ. The key identifies comparable \emph{observable} bundles, not a certified identical service contract.
+
+\subsection{Repeated members and freshness}
+Each provider member has a raw-byte checksum and a second fingerprint of its normalized, sorted core offer table, including prices. The latter is invariant to row order, numerical spelling and optional schema additions. It is computed over the whole provider member, not just the target GPUs. A repeated state may reflect unchanged prices or an unrefreshed upstream feed; those explanations cannot generally be distinguished.
+
+The primary analysis forecasts the published aggregate-catalog state and retains repeated member states. A conservative freshness sensitivity excludes repeated states from both historical observations and targets. A changed member is not proof that every offer was refreshed. This sensitivity changes the sample and history, so the difference in errors cannot be interpreted as a causal estimate of staleness bias.
+
+\section{Forecast protocol}
+The machine-readable protocol was frozen after the source audit and before forecast performance was computed. It was not publicly preregistered. The provider-alias correction and a reporting correction aligning diagnostic-rate weights with loss weights were recorded after implementation review. No model or tuning parameter was chosen from the resulting accuracy ranking.
+
+\subsection{Origins, horizons and targets}
+Primary origins are 00:00 UTC on the eighth day of each month, starting January 2025. An input archive must have an availability proxy no later than the origin. A service requires 12 earlier observations and a most recent quote no older than 45 days. Gaps are permitted; all trend calculations use elapsed time rather than treating missing months as adjacent. The six-observation sensitivity admits shorter histories.
+
+For nominal horizon $h\in\{1,3,6\}$, the target is the same service key's quote in the selected archive for month $t+h$, provided that archive was available by the eighth day of that month. A missing key, absent archive or late archive produces a missing target. No missing target is replaced by the last known price. Origins whose target month lies after September 2026 are excluded before evaluation; other missing outcomes remain in the eligibility denominator.
+
+The observed one-month target records were published approximately 21--27 days after the origin, three-month records 82--88 days after, and six-month records 174--177 days after. Thus the horizons are calendar-month labels, not exact 30-, 90- or 180-day price realizations. They measure a sampled quote at the horizon, not the total cost of renting continuously over it. The two late 2026 target archives also remove complete origin-months from several scored comparisons.
+
+\subsection{Models}
+Let $p_{i,s}$ be the last admissible quote for service $i$, and $\ell_{i,s}=\log p_{i,s}$. Persistence sets $\widehat p_{i,t+h}=p_{i,s}$. Drift extrapolates the first-to-last observed log-price change per elapsed month. Local trend fits an OLS slope to log price against elapsed months over the last 12 observations, then anchors the extrapolation at the latest price. Damped trend multiplies this slope contribution by $0.5$. These are simple reference specifications, not an exhaustive search over classical forecasting methods.
+
+Pooled ridge estimates the direct target log return,
+\begin{equation}
+ y_{i,t,h}=\log p_{i,t+h}-\log p_{i,s},\qquad
+ (\widehat\alpha_h,\widehat\beta_h)=\arg\min_{\alpha,\beta}
+ \sum_{j\in\mathcal T_{t,h}} w_j(y_j-\alpha-z_j^\top\beta)^2+0.1\|\beta\|_2^2.
+\end{equation}
+The seven features are the last log return per elapsed month, local log-price slope, standard deviation of recent log returns per elapsed month, log current price, log GPU count, log GPU memory and a spot indicator. Features are standardized using weighted training means and variances; the intercept is not penalized. Training pools accelerator families and markets but fits each horizon separately. Within training, each origin receives equal total weight, each provider within an origin receives equal weight, and examples within that provider-origin receive equal weight.
+
+Training examples may have four historical observations; evaluated primary cases still require twelve. A label enters training only after both its actual archived publication proxy and its target cutoff are no later than the current origin. At least six matured training-origin months and 30 examples are required; otherwise the model explicitly falls back to persistence. The evaluated primary cases do not invoke that fallback. A conditional provider-holdout sensitivity removes the evaluated provider's training labels while retaining its observed lag features; this is not a cold-start experiment.
+
+All extrapolated log returns are clipped to $[-\log 10,\log 10]$ relative to the latest quote. This predetermined bound prevents extreme numerical extrapolation and is reported rather than hidden. It never activates in the primary evaluation. No price series is generated synthetically; synthetic fixtures are restricted to software tests.
+
+\subsection{Losses, missingness and uncertainty}
+For each market and horizon, the primary mean absolute log error is
+\begin{equation}
+ L_{m,h}=\frac{1}{|T|}\sum_{t\in T}\frac{1}{|P_t|}\sum_{a\in P_t}
+ \frac{1}{|I_{a,t}|}\sum_{i\in I_{a,t}}
+ \left|\log\widehat p^{(m)}_{i,t+h}-\log p_{i,t+h}\right|.
+\end{equation}
+Here $T$ contains scored origin months, $P_t$ the providers represented at that origin, and $I_{a,t}$ its matched services. This gives a provider with many regional rows no automatic advantage in total weight. The provider set can change across origins; this is a repeated cross-section of eligible survivors, not a fixed market portfolio. GPU/VRAM-specific tables use the same nesting. Dollar-per-GPU-hour MAE is a secondary measure. Log error is not MAPE and is not reported as a literal percentage price error.
+
+All five models are scored on the same observed cases within a specification. Target attrition is reported as a raw fraction of eligible cases. Unchanged-price and repeated-member rates use the same nested weights as the losses; raw-row versions are also retained. Because evaluation conditions on target observability, neither weighting nor accuracy establishes performance for delisted services.
+
+Paired alternative-minus-persistence loss differences are calculated by origin. Exploratory 95\% circular moving-block intervals retain the full monthly calendar, including missing origins, with block length $\max(3,h)$, 2,000 replications and a fixed seed. Intervals are suppressed when fewer than four block-length equivalents of observed origins remain. In particular, the six-month headline comparisons have too few time blocks for these intervals. These diagnostics and leave-one-provider-out summaries describe stability; they do not supply strong population inference or independent-trade significance.
+
+\section{Results}
+\subsection{Coverage and persistence}
+Table~\ref{tab:coverage} shows the primary evaluation population. There are \EligibleCases{} eligible service-origin-horizon cases and \ObservedCases{} observed targets across horizons; the same service can contribute multiple, overlapping forecasts. Missing outcomes range from 14.5\% to 19.8\% for on-demand and 31.5\% to 39.0\% for spot. The short H200 history is especially restrictive: only four on-demand six-month cases and no spot six-month cases meet the primary matching rules. Those four cases are not four independent economic events.
+
+\begin{table}[H]
+\centering\small
+\input{tables/coverage}
+\caption{Primary coverage. Months count scored origins; providers count distinct represented economic providers. Missing is the raw eligible-case attrition rate. Same is the provider-balanced unchanged-target rate. Counts are not independent sample sizes.}\label{tab:coverage}
+\end{table}
+
+Persistence yields the lowest aggregate mean absolute log error in each of the six market--horizon cells (Table~\ref{tab:accuracy}). One-month persistence MAE is \$\DemandOneUSD{} per GPU-hour for on-demand and \$\SpotOneUSD{} for spot. These results are conditional on the selected surviving services, not a guarantee for any current quote or workload.
+
+\begin{table}[H]
+\centering\small
+\input{tables/accuracy}
+\caption{Mean absolute log errors, balancing origins and providers. Smaller is better. Damped trend uses a fixed one-half trend contribution; ridge uses a fixed penalty. No model selection uses these results.}\label{tab:accuracy}
+\end{table}
+
+\begin{figure}[H]
+\centering\includegraphics[width=\linewidth]{figures/forecast_errors.pdf}
+\caption{Forecast errors for the fixed model menu. Each curve uses identical observed targets within a market and horizon. The six-month results contain only 13 scored origins, with overlapping outcomes.}\label{fig:accuracy}
+\end{figure}
+
+The balanced unchanged-target share is \DemandOneSame\% for one-month on-demand and \SpotOneSame\% for one-month spot. Whole-provider member repetition accounts for \DemandOneRepeat\% and \SpotOneRepeat\% of the corresponding balanced target populations. Figure~\ref{fig:limits} separates these quantities: unchanged quotes, repeated provider states and missing targets are distinct phenomena.
+
+\begin{figure}[H]
+\centering\includegraphics[width=\linewidth]{figures/coverage_limits.pdf}
+\caption{Measurement limits. Missing targets use raw eligible-case fractions; unchanged quotes and repeated members use provider-balanced fractions among observed targets. A repeated provider table does not prove stale prices, and an unchanged price in a changed table does not prove fresh observation.}\label{fig:limits}
+\end{figure}
+
+\subsection{Robustness and what it does not resolve}
+Removing repeated member states preserves the headline persistence ranking, but reduces one-month on-demand observed cases from 6,015 to 2,965. The error comparison changes along with provider composition and usable history. It cannot isolate a pure staleness effect. Strict optional-field matching leaves only six scored one-month origins and three scored three-month origins; no six-month target survives. This is evidence that claims about fully fixed services face much less data support than the core-field panel suggests.
+
+\begin{table}[H]
+\centering\small
+\input{tables/sensitivity}
+\caption{Selected one-month sensitivity results. These are different samples except provider holdout, which changes ridge training only. The complete horizon/model outputs accompany the study.}\label{tab:sensitivity}
+\end{table}
+
+The additional 24-hour publication lag leaves the primary cases and scores unchanged under the eighth-day schedule. This checks a small timing perturbation, not the validity of the archive proxy itself. The six-observation cohort and conditional provider holdout also fail to reverse the aggregate persistence ranking. Cross-provider learning in this particular ridge specification therefore does not establish a transferable improvement. The leave-one-provider-out tables and GPU-specific results are supplied to prevent an aggregate result from concealing its changing composition.
+
+\subsection{A paired information-timing diagnostic}
+The primary schedule allows first-week archives to become observable. A separate diagnostic moves origins to month-start and compares two information sets on \TimingMatches{} identical key/origin/horizon/target cases. The admissible variant uses archived publication times. The deliberately inadmissible variant treats each nominal month's archive as available at the start of that month, even when it was published later. It keeps actual archive dates for elapsed-time calculations and uses the same eighth-day rule for target inclusion.
+
+In \TimingFuturePercent\% of matched cases, that nominal-label variant uses a predictor published after the forecast origin. Table~\ref{tab:timing} reports the persistence comparison. For the one-month on-demand comparison, the score falls from approximately 0.0353 to 0.0205, an apparent reduction of 42.0\%; the analogous spot reduction is 33.9\%. These are relative reductions in the \emph{error metric}, not rental-price changes or trading returns. The intentionally contaminated variant is a diagnostic, not a valid strategy, and does not establish that all nominally dated historical datasets are unusable.
+
+\begin{table}[H]
+\centering\small
+\input{tables/timing}
+\caption{Persistence on identical matched day-one cases. Actual timing uses the archive proxy; nominal label grants later information. Coverage differences outside the intersection are reported separately in the run manifest.}\label{tab:timing}
+\end{table}
+
+\begin{figure}[H]
+\centering\includegraphics[width=\linewidth]{figures/timing_diagnostic.pdf}
+\caption{The month-start diagnostic demonstrates sensitivity to the information set. It does not estimate the accuracy of a trade executable on the first day of each month.}\label{fig:timing}
+\end{figure}
+
+\section{Implications and limitations}
+For a compute-pricing desk, a forecast should travel with its service identity, source timestamp, input age, member-repetition indicator and missing-target history. In this sample, simple persistence provides a useful benchmark against which to demand evidence from more elaborate methods. A large model improvement without those controls could instead reflect newer information, a changed service or a different survivor population.
+
+Several limits remain material. All observations come through one public aggregation pipeline; multiple providers are not independent data-collection systems. Archive timestamps are imperfect availability proxies. Catalog quotes are not transactions and do not prove capacity, counterparties, execution terms or interruption costs. Monthly sampling misses within-month variation, especially for spot services. Excluding ambiguous providers improves interpretability while narrowing market coverage. The primary key omits some service conditions; the stricter key cannot support a six-month backtest. H200 results are sparse. Regional rows share provider decisions and time shocks, and overlapping forecast horizons further reduce effective information.
+
+The model set contains four simple time-series references and one fixed pooled regression. It cannot rule out improvements from suitable event information, a better specified dynamic model, a longer history, or provider-native refreshed records. No conclusion about causal supply or demand effects, futures risk premia, hardware depreciation, realizable arbitrage or market efficiency follows from the error ranking. Public-source availability also does not automatically establish blanket redistribution rights; the reproducibility package separates retrieval instructions from third-party raw archives.
+
+\section{Conclusion}
+The paired month-start diagnostic produces a 42.0\% apparent one-month on-demand error reduction solely by changing the permitted information set, while holding forecast cases fixed. This is the central measurement result. Under the admissible primary schedule, persistence outperforms the fixed alternatives in aggregate one-, three- and six-month comparisons for both on-demand and spot quotes, in a sample with many unchanged offers and limited long-horizon H200 evidence. Forecast accuracy must therefore be interpreted together with availability rules, observable service identity, repeated provider states and missing outcomes. These results extend an existing public reconstruction into a controlled forecast audit; they do not establish first discovery of the underlying data issues or universally unforecastable compute prices.
+
+\appendix
+\section{Reproduction and audit trail}
+The public project is available at \url{https://github.com/esadomer/gpu-rental-backtest-audit}. It contains the locked protocol, explicit post-first-run provider-alias amendment, source manifests, extraction and evaluation scripts, behavioral tests, aggregate sensitivity results, and the source of this paper. Its documented commands download the registered public inputs and regenerate every eligible forecast case, including missing targets. Raw third-party archives and row-level outputs are not bundled in the repository. The protocol SHA-256 is:
+\begin{center}\scriptsize\texttt{6d3f44cede6f791542aeed2425f5325b85c01f0a2c3bf119e045f77b4a6574e5}\end{center}
+Run manifests fingerprint the amended method, archived inputs and research code. Raw downloads are retained locally and are not included in the manuscript-source archive.
+
+The README supplies the environment and the commands for archive retrieval, rolling evaluation, independent result verification and figure generation. No paid feed, private account or vendor request was used to collect the empirical inputs. Synthetic test fixtures check future-data exclusion, target missingness, decimal identity, member duplication, training-label maturity, provider holdout, nested weights and sparse-calendar uncertainty; they never enter empirical output files.
+
+\begin{thebibliography}{9}
+\bibitem[Bandi and Su(2026)]{bandisu2026}
+F. M. Bandi and Y. Su. (Early) AI Compute Asset Pricing. \emph{arXiv:2607.12156v4}, 2026. \url{https://arxiv.org/abs/2607.12156v4}.
+\bibitem[Cameron and Miller(2015)]{cameron2015}
+A. C. Cameron and D. L. Miller. A practitioner's guide to cluster-robust inference. \emph{Journal of Human Resources}, 50(2):317--372, 2015. \url{https://doi.org/10.3368/jhr.50.2.317}.
+\bibitem[dstack(gpuhunt)]{gpuhunt}
+dstack. \emph{gpuhunt: GPU prices aggregator for cloud providers}. Public software and versioned catalog infrastructure. \url{https://github.com/dstackai/gpuhunt}. Archives accessed October 28, 2026; exact object URLs and checksums are listed in the source manifest.
+\bibitem[Hyndman and Athanasopoulos(2021)]{hyndman2021}
+R. J. Hyndman and G. Athanasopoulos. \emph{Forecasting: Principles and Practice}, third edition. OTexts, 2021. Chapter 5. \url{https://otexts.com/fpp3/toolbox.html}.
+\bibitem[Khan et al.(2022)]{khan2022}
+M. Khan, A. I. Jehangiri, Z. Ahmad, M. A. Ala'anzy, and A. Umer. An exploration to graphics processing unit spot price prediction. \emph{Cluster Computing}, 25:3499--3515, 2022. \url{https://doi.org/10.1007/s10586-022-03581-8}.
+\bibitem[Mittal(2026)]{mittal2026}
+R. Mittal. \emph{gpu-price-history}. Public reconstruction repository and accompanying manuscript description, 2026. Pinned revision \texttt{ee8820dd90d7715d8bb57cee03fb0882706d76c5}. \url{https://github.com/rahilmittal1/gpu-price-history}. Repository-generated data are attributed under CC BY 4.0; original third-party archives retain their own terms.
+\bibitem[Verda(2025)]{verda2025}
+Verda. DataCrunch is changing its name to Verda. November 5, 2025. \url{https://verda.com/blog/datacrunch-is-changing-its-name-to-verda}.
+\end{thebibliography}
+\end{document}

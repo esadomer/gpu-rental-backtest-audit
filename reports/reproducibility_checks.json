@@ -1,0 +1,26 @@
+{
+  "offline_regeneration_csv_files": 16,
+  "fresh_download_regeneration_csv_files": 16,
+  "all_byte_identical": true,
+  "fresh_sources": 3,
+  "fresh_catalog_archives": 37,
+  "original_manifests_preserved": true,
+  "checks": {
+    "results\\day_one_actual_cases.csv": true,
+    "results\\day_one_nominal_cases.csv": true,
+    "results\\forecast_cases.csv": true,
+    "results\\forecast_summary.csv": true,
+    "results\\gpu_results.csv": true,
+    "results\\observed_repricing_records.csv": true,
+    "results\\origin_losses.csv": true,
+    "results\\provider_evaluation_coverage.csv": true,
+    "results\\provider_leave_one_out.csv": true,
+    "results\\target_attrition.csv": true,
+    "results\\timing_matched_cases.csv": true,
+    "results\\timing_paired_origin_losses.csv": true,
+    "data\\research\\catalog_coverage.csv": true,
+    "data\\research\\catalog_exclusions.csv": true,
+    "data\\research\\catalog_panel.csv": true,
+    "data\\research\\provider_members.csv": true
+  }
+}

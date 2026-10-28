@@ -1,0 +1,14 @@
+{
+  "output/gpu_rental_arxiv_source.zip": {
+    "bytes": 66220,
+    "sha256": "aacd46d4b49e80d8af7f6480464779ac0c54fb10dacdcc7373c802f8636f52c3"
+  },
+  "output/gpu_rental_reproducibility.zip": {
+    "bytes": 649913,
+    "sha256": "bcb986fd533792fed0406ed6978a510ef3e5947a23dea74bb9fd2111759fdad9"
+  },
+  "output/pdf/gpu_rental_forecasting_v2.pdf": {
+    "bytes": 143520,
+    "sha256": "c4d7cb92e100f6ec80e96c4534fa1263b38a425599b029fbe26634a13fcc0e73"
+  }
+}

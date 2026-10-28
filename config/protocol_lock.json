@@ -1,0 +1,6 @@
+{
+  "protocol_sha256": "6d3f44cede6f791542aeed2425f5325b85c01f0a2c3bf119e045f77b4a6574e5",
+  "frozen_at_utc": "2026-10-28T19:27:08.214332+00:00",
+  "note": "Frozen before first forecast evaluation; data audit and plan review already completed.",
+  "evaluation_had_not_started_at_freeze": true
+}
