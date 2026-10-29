@@ -4,12 +4,8 @@
     "sha256": "5a82395697c5517c14110394c69dd72b1fbc8ca308378e29b0c2067c9d46948a"
   },
   "output/gpu_rental_reproducibility.zip": {
-    "bytes": 1085017,
-    "sha256": "20ba00602e1cca5954fe13e732abedd71d77888c75af8b2d4c1f7431541798c7"
-  },
-  "output/pdf/gpu_rental_forecasting_v2.pdf": {
-    "bytes": 143520,
-    "sha256": "c4d7cb92e100f6ec80e96c4534fa1263b38a425599b029fbe26634a13fcc0e73"
+    "bytes": 956474,
+    "sha256": "4203ac5f4722f7cf08b636da3e6834f5c8d5202f279592ab20841e9d14e78418"
   },
   "output/pdf/gpu_rental_forecasting_preprint.pdf": {
     "bytes": 177982,

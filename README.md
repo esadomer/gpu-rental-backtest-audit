@@ -121,10 +121,3 @@ The original purchase-price hypothesis was stopped after the [physical-data audi
 Credit belongs to Rahil Mittal for the source reconstruction and prior measurement work, dstack's gpuhunt for the original catalog infrastructure, and the underlying providers for their quotes. [Data provenance and distribution boundaries](reports/data_provenance.md) distinguish public access from redistribution rights. No blanket license over third-party quote data is claimed. No project-wide reuse license has been selected; public accessibility should not be interpreted as a grant of additional rights.
 
 The current research preprint and its reproducibility materials are available through the links above. It does not establish executable returns, historical capacity, counterparty quality, hardware depreciation or guaranteed publication acceptance. [Submission status and remaining author decisions](reports/submission_notes.md).
-
-<details>
-<summary>Archived manuscript (superseded)</summary>
-
-[Historical V2 PDF](output/pdf/gpu_rental_forecasting_v2.pdf) is retained for provenance and existing links. It predates the supplemental diagnostics and is not the current paper. Use the current preprint linked at the top for reading and citation.
-
-</details>
