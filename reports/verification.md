@@ -1,6 +1,17 @@
 # Verification and independent-review record
 
-## Final publication preparation, October 29, 2026
+## Current editorial manuscript preparation, October 29, 2026
+
+The author's supplied English revision is now the canonical manuscript. Its revised title and clearer explanations are reflected in the LaTeX source and citation metadata. The removed editorial running header and metadata label do not appear in the publication PDF. This is an editorial and packaging update, not a new empirical analysis.
+
+- **Independent content comparison completed:** the supplied revision preserves all 61 rows of nine tables (309 numeric/date tokens), three equations and seven bibliography entries. The central result, exploratory status, missing-target caveats, sparse H200 coverage and attribution remain intact.
+- **Scientific artifacts preserved:** all 72 tracked files under the code, tests, configuration, data, results, numerical tables and scientific-figure directories are byte-identical to the preceding published commit. The three display equations and bibliography in the LaTeX source are also unchanged apart from line-ending normalization.
+- **Current manuscript:** 15 pages compiled with Tectonic 0.17.0. All pages were rendered and visually inspected. The figure captions match the retained panel layout; a minor ambiguous pronoun was corrected. No authorial plurals, editorial labels, overfull boxes, missing glyphs or unresolved references remain. Two non-fatal underfull bibliography notices and the environment fontconfig warning remain; the inspected rendering is legible.
+- **Independent final integration review: PASS.** All 88 supplied text blocks were accounted for after documented wording, citation and mathematical-typesetting changes. The reviewer inspected all 15 pages, equations, captions, numbering, citation metadata and both packages; all 16 source entries and 95 reproducibility entries matched the workspace. This review did not rerun the scientific computations or certify external publication.
+- **Portable source verified:** compilation from the extracted source ZIP reproduces all 15 pages with identical extracted text and rendered pixels. PDF build timestamps may differ, so this is not a claim of binary-identical PDFs.
+- **Scope of this check:** empirical experiments and public data retrieval were not rerun for this editorial update. Earlier numerical reproduction and behavioral-test evidence is recorded below. Local compilation does not verify arXiv's server-side build, and no arXiv submission has occurred.
+
+## Earlier scientific publication preparation, October 29, 2026
 
 The author authorized publishing the revised preprint and full supplemental reproducibility materials to the existing repository. This supersedes the earlier local-only checkpoint. No arXiv submission is included.
 

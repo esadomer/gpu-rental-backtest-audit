@@ -2,7 +2,7 @@
 
 **Information timing, service identity, and persistence in public GPU rental prices.**
 
-**[Current preprint (PDF, 13 pages)](output/pdf/gpu_rental_forecasting_preprint.pdf)** · [Reproducibility package](output/gpu_rental_reproducibility.zip) · [LaTeX source](output/gpu_rental_arxiv_source.zip) · [Cite this preprint](CITATION.cff)
+**[Current preprint (PDF, 15 pages)](output/pdf/gpu_rental_forecasting_preprint.pdf)** · [Reproducibility package](output/gpu_rental_reproducibility.zip) · [LaTeX source](output/gpu_rental_arxiv_source.zip) · [Cite this preprint](CITATION.cff)
 
 [![Tests](https://github.com/esadomer/gpu-rental-backtest-audit/actions/workflows/tests.yml/badge.svg)](https://github.com/esadomer/gpu-rental-backtest-audit/actions/workflows/tests.yml)
 
