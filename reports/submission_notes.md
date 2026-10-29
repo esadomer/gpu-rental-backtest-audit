@@ -2,7 +2,7 @@
 
 Author name supplied: **H. Esad Kay**. No affiliation or ORCID has been invented.
 
-The project provides a completed empirical working-paper draft, a compiled PDF, a portable LaTeX source bundle and a reproducibility package. The manuscript and reproducibility materials are published at https://github.com/esadomer/gpu-rental-backtest-audit with the author's authorization. Nothing has been submitted to arXiv. The author subsequently authorized publication of the complete revised manuscript and supplementary diagnostics to the same repository.
+The current research preprint, manuscript source, all supplemental analyses and reproducibility package are published at [the project repository](https://github.com/esadomer/gpu-rental-backtest-audit). The [current PDF](../output/pdf/gpu_rental_forecasting_preprint.pdf) is the canonical reading and citation version. Earlier manuscripts are retained only as archives. Nothing has been submitted to arXiv.
 
 ## Scientific positioning
 

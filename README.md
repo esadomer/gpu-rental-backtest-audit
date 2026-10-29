@@ -2,12 +2,16 @@
 
 **Information timing, service identity, and persistence in public GPU rental prices.**
 
-[Read the paper](output/pdf/gpu_rental_forecasting_preprint.pdf) · [Methods and protocol](reports/analysis_plan.md) · [Results](results/forecast_summary.csv) · [Prior-work comparison](reports/literature_overlap.md) · [Cite this study](CITATION.cff)
+**[Current preprint (PDF, 13 pages)](output/pdf/gpu_rental_forecasting_preprint.pdf)** · [Reproducibility package](output/gpu_rental_reproducibility.zip) · [LaTeX source](output/gpu_rental_arxiv_source.zip) · [Cite this preprint](CITATION.cff)
 
 [![Tests](https://github.com/esadomer/gpu-rental-backtest-audit/actions/workflows/tests.yml/badge.svg)](https://github.com/esadomer/gpu-rental-backtest-audit/actions/workflows/tests.yml)
 
 **Author:** H. Esad Kay  
 **Status:** research preprint, October 29, 2026; not submitted to arXiv.
+
+The current PDF, manuscript source, reproducibility package and analysis outputs are synchronized. This repository includes the supplemental block-bootstrap, provider/year, origin-deletion, changed-price, attrition and frequency-benchmark analyses described in the paper.
+
+[Methods and protocol](reports/analysis_plan.md) · [Primary results](results/forecast_summary.csv) · [Supplemental results](results/v3/) · [Origin-deletion results](results/origin_sensitivity/) · [Prior-work comparison](reports/literature_overlap.md)
 
 ## Central finding
 
@@ -31,7 +35,7 @@ The [separate supplemental plan](reports/v3_analysis_plan.md) and [origin-deleti
 - **Structured missingness:** 901 of 1,016 missing one-month on-demand targets come from two late archives; 115 have absent service keys. Spot has 319 late-archive and 325 absent-key cases. Their lagged characteristics differ. These diagnostics do not recover missing outcomes or establish the direction of selection bias. [Attrition](results/v3/attrition_summary.csv) · [Characteristics](results/v3/attrition_features.csv).
 - **One additional fixed benchmark:** historical change frequency shrinks the original damped trend toward persistence. It improves on damped trend but remains **7.0–30.1% worse than persistence** across the six primary cells. It is a disclosed post-result heuristic, not a tuned forecasting breakthrough. [Benchmark comparisons](results/v3/benchmark_summary.csv).
 
-The original five-model experiment and its numerical outputs are unchanged. [V2 PDF](output/pdf/gpu_rental_forecasting_v2.pdf) remains available.
+The original five-model experiment and its numerical outputs are unchanged.
 
 ## What the study does
 
@@ -116,4 +120,11 @@ The original purchase-price hypothesis was stopped after the [physical-data audi
 
 Credit belongs to Rahil Mittal for the source reconstruction and prior measurement work, dstack's gpuhunt for the original catalog infrastructure, and the underlying providers for their quotes. [Data provenance and distribution boundaries](reports/data_provenance.md) distinguish public access from redistribution rights. No blanket license over third-party quote data is claimed. No project-wide reuse license has been selected; public accessibility should not be interpreted as a grant of additional rights.
 
-The paper is available for review. It does not establish executable returns, historical capacity, counterparty quality, hardware depreciation or guaranteed publication acceptance. [Submission status and remaining author decisions](reports/submission_notes.md).
+The current research preprint and its reproducibility materials are available through the links above. It does not establish executable returns, historical capacity, counterparty quality, hardware depreciation or guaranteed publication acceptance. [Submission status and remaining author decisions](reports/submission_notes.md).
+
+<details>
+<summary>Archived manuscript (superseded)</summary>
+
+[Historical V2 PDF](output/pdf/gpu_rental_forecasting_v2.pdf) is retained for provenance and existing links. It predates the supplemental diagnostics and is not the current paper. Use the current preprint linked at the top for reading and citation.
+
+</details>

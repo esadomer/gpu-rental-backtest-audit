@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite the accompanying working paper when using this research."
+message: "Please cite the current research preprint when using this research."
 title: "GPU Rental Backtest Audit"
 authors:
   - family-names: "Kay"
