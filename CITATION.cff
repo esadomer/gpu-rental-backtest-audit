@@ -6,7 +6,7 @@ authors:
     given-names: "H. Esad"
 url: "https://github.com/esadomer/gpu-rental-backtest-audit"
 repository-code: "https://github.com/esadomer/gpu-rental-backtest-audit"
-date-released: 2026-10-28
+date-released: 2026-10-29
 preferred-citation:
   type: unpublished
   title: "Forecasting Posted GPU Rental Prices from Public Catalogs: Information Timing, Service Identity, and Persistence"
@@ -14,4 +14,4 @@ preferred-citation:
     - family-names: "Kay"
       given-names: "H. Esad"
   year: 2026
-  url: "https://github.com/esadomer/gpu-rental-backtest-audit/blob/main/output/pdf/gpu_rental_forecasting_v2.pdf"
+  url: "https://github.com/esadomer/gpu-rental-backtest-audit/blob/main/output/pdf/gpu_rental_forecasting_preprint.pdf"

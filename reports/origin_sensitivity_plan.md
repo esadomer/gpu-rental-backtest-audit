@@ -1,0 +1,11 @@
+# Origin-deletion diagnostic
+
+This diagnostic was specified after the original experiment and the first supplemental results were known. It is exploratory, not preregistered. Its machine-readable plan and input fingerprint were locked before calculating these additional results, in `config/origin_sensitivity.json` and `config/origin_sensitivity_lock.json`.
+
+For every market/horizon cell, remove each observed forecast-origin month once. Remove the entire paired actual/nominal origin cross-section and then equally average the retained origin losses. The within-origin provider weights are unchanged because no part of a retained origin is removed. Recompute the relative reduction as one minus the ratio of the two retained mean losses, rather than averaging monthly percentage changes. Missing calendar months are not deletion runs, and no forecast is refitted.
+
+Export every deletion, its retained origin/case count, both loss levels, their absolute difference, the relative reduction and the change from the full-sample reduction. Ratios with zero baseline and empty retained samples remain undefined. Also report each omitted origin's signed loss difference as a fraction of the full sum of signed differences; negative contributions are not clipped. This is an influence diagnostic, not a confidence interval or jackknife standard-error calculation.
+
+All 94 observed-origin deletions across the six market/horizon cells are reported. A positive result after every single deletion does not rule out joint concentration across several months. In particular, the main one-month on-demand result ranges from 28.9% to 51.1%, and July 2025 contributes 45.5% of the full-sample signed loss difference. Both the preserved sign and the concentration are disclosed.
+
+Commands: `python scripts/origin_sensitivity.py`, followed by `python scripts/verify_origin_sensitivity.py` and `python scripts/make_v3_figures.py`. The independent verifier reconstructs the 94 retained samples from the original day-one actual/nominal case files, rather than trusting the aggregate loss input alone. Unit tests cover unequal row counts, ratio-of-means aggregation, missing origins, zero baselines, duplicate/unpaired records, signed influence and input preservation.

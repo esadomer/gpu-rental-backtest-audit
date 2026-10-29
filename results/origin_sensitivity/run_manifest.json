@@ -1,0 +1,16 @@
+{
+  "status": "Exploratory addition after original and supplemental results were known; fixed before calculating origin-deletion results; not preregistered",
+  "completed_at_utc": "2026-10-29T11:36:09.392388+00:00",
+  "protocol_sha256": "439c8c6ab5140cc4368e1f50e4f82fdf3dbe4134b96154977a8bd49c7f6c3fa8",
+  "lock_sha256": "bd51badcf156ffb506ddd9ecb8dda41f8d765c8373ba808fe6aee9383988b41e",
+  "input_hashes": {
+    "results/v3/paired_timing_origins.csv": "77cdf4cc973a570b3f9acc838033a8d455bc6babd425b87189510461b9c2f4b1"
+  },
+  "code_hashes": {
+    "scripts/origin_sensitivity.py": "d0792584823c76f2a079ea36b639c06edd66c2203ee8c1cff21f25f4612d08f1"
+  },
+  "output_hashes": {
+    "results/origin_sensitivity/leave_one_origin_out.csv": "2c2be469f44fa1df0913b09c65d154d822e41bf6cae7f9dd189078f5d06e2a10",
+    "results/origin_sensitivity/summary.csv": "bc2d440b576539306469a8a621c5011b5a960ad98672418d3f2f3a8c2a292fb1"
+  }
+}

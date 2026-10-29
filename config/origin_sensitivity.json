@@ -1,0 +1,21 @@
+{
+  "specified_at_utc": "2026-10-29T11:34:33.571145+00:00",
+  "status": "Exploratory addition after original and supplemental results were known; fixed before calculating origin-deletion results; not preregistered",
+  "author": "H. Esad Kay",
+  "input": "results/v3/paired_timing_origins.csv",
+  "input_sha256": "77cdf4cc973a570b3f9acc838033a8d455bc6babd425b87189510461b9c2f4b1",
+  "markets": [
+    "on_demand",
+    "spot"
+  ],
+  "horizons": [
+    1,
+    3,
+    6
+  ],
+  "model": "persistence",
+  "rule": "For every observed origin in every market/horizon cell, remove that complete paired origin, then recompute equal-origin actual and nominal mean losses and their ratio. Do not delete individual service rows or missing calendar months.",
+  "relative_reduction": "1 - mean(nominal_loss) / mean(actual_loss); missing for zero baseline or empty retained sample",
+  "concentration": "Report each omitted origin signed actual-minus-nominal loss difference divided by the full-cell sum of signed differences; undefined if the denominator is zero. This is an influence diagnostic, not a confidence interval, jackknife standard error or refitted model.",
+  "reporting": "Export every deletion, not a selected set; summarize min/max and associated omitted months; retain observed-origin and paired-case counts. Positive single-deletion results do not rule out concentration across multiple origins."
+}

@@ -1,0 +1,46 @@
+{
+  "protocol_sha256": "6d3f44cede6f791542aeed2425f5325b85c01f0a2c3bf119e045f77b4a6574e5",
+  "panel": {
+    "archives": 37,
+    "rows": 20377,
+    "raw_row_categories": {
+      "candidate": 23252,
+      "conflicting_same_snapshot_identity": 2847,
+      "duplicate_capture": 28,
+      "duplicate_provider_alias": 810,
+      "excluded_provider": 1279767,
+      "invalid_numeric_field": 39,
+      "non_target_gpu": 361129
+    },
+    "keys": 1214,
+    "strict_keys": 1826,
+    "first_month": "2023-08",
+    "last_month": "2026-09"
+  },
+  "timing": {
+    "actual_eligible": 21313,
+    "nominal_eligible": 23076,
+    "matched_observed": 17065,
+    "nominal_future_predictor_fraction": 0.9873425139173747
+  },
+  "started_at_utc": "2026-10-28T19:46:26.284837+00:00",
+  "completed_at_utc": "2026-10-28T19:47:46.716537+00:00",
+  "protocol_amendment_sha256": "1116b882b2028963ee17e16ec0b92d293031602770ba72000de72a039355d50b",
+  "primary_eligible_cases": 22868,
+  "primary_observed_cases": 18226,
+  "repricing_records": 3665,
+  "repricing_provider_months": 93,
+  "python": "3.12.8",
+  "numpy": "2.3.1",
+  "pandas": "2.3.1",
+  "source_manifest_sha256": "bc8fa76cb124dde952bb5d936e307821fd8f3ee04515511aa5cedd971078e405",
+  "code_hashes": {
+    "scripts\\audit_data.py": "3901c119900e46903f0cec05d0ff3aa54d76593573e7c356c5bf579f34c70e4e",
+    "scripts\\catalog_panel.py": "bbcade29fa9eb5d5492245b3333bf2513b34d6a2c944e98ab261d46575197722",
+    "scripts\\fetch_catalogs.py": "85237021f31c6c2045f5de9e335624f76652812128ec794f5ecc3aa736db9776",
+    "scripts\\fetch_sources.py": "8a2c6e51ab8b8372ffb7ecfe57642115b65bbfd33437e275dfee2490f78cefff",
+    "scripts\\make_figures.py": "f95a7ed5d77ebb8d39d13dedb9de7f4f1d1499348c00364cfa7361deb5a3bd63",
+    "scripts\\run_study.py": "4172ba719436eabf3f214a22f7d9a4ffcf8baed1e78d09ee2857e7199a5346d2",
+    "scripts\\verify_results.py": "ec27c25679ad8d4ac4c85b66a4e417a71d5413cb8f42e0bda49e1e67d852c316"
+  }
+}

@@ -23,3 +23,7 @@ AGENTS.md
 reports/desk_note.md
 reports/research_brief.md
 output/pdf/gpu_rental_forecasting.pdf
+results/v3/frequency_cases.csv
+output/pdf/gpu_rental_forecasting_v3.pdf
+output/gpu_rental_arxiv_source_v3.zip
+output/gpu_rental_reproducibility_v3.zip

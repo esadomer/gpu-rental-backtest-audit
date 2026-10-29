@@ -1,5 +1,6 @@
 # Public GPU Price Data: Audit and Research Decision
 
+Historical audit checkpoint: this report records evidence before the forecast experiment. The later study, supplemental diagnostics and current reproduction commands are documented in [README.md](../README.md) and [the verification record](verification.md). Statements below about work not yet performed refer to this initial checkpoint.
 Evidence cutoff: **October 28, 2026**. This is a data-feasibility report, not a forecasting paper.
 
 ## Decision
@@ -162,3 +163,19 @@ The first implementation review found that undocumented `pMsg` entries had been 
 A fresh second reviewer found no substantive defects. The reviewer independently reconciled rental totals and the 2,820 / 94 / 2,726 physical-record counts, checked all 19 cached input hashes, compared all 2,906 exported raw tracker updates with the cached arrays, and passed all 10 tests. The 2,758 exported candidate-category quote rows include 32 explicitly rejected identity-drift rows; only 2,726 belong to the eight exploratory histories.
 
 The audit owner separately reran the full offline audit and confirmed that all 13 derived files were byte-identical. The read-only reviewers did not rerun that file-writing command. External page claims and whole-market data accuracy were not independently certified.
+
+## Subsequent forecast outputs
+
+After the rental data gate, the original `run_study.py` experiment produced the primary/sensitivity case and summary files in `results/`. The separate `robustness_diagnostics.py` supplement produces paired timing, conditional-loss, attrition and frequency-benchmark files in `results/v3/`. `origin_sensitivity.py` exports all 94 complete-origin deletions and six market/horizon summaries in `results/origin_sensitivity/`. Row-level files are generated locally, while aggregate results are included in the public repository.
+
+After the retrieval and original experiment commands in the README, run the supplemental analysis and its independent checks in this order:
+
+```bash
+python scripts/robustness_diagnostics.py
+python scripts/verify_v3.py
+python scripts/origin_sensitivity.py
+python scripts/verify_origin_sensitivity.py
+python scripts/make_v3_figures.py
+```
+
+These additions do not reopen the unsupported physical-purchase-price hypothesis or turn missing quotes into observed outcomes.

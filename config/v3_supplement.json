@@ -1,0 +1,64 @@
+{
+  "version": "3.0",
+  "author": "H. Esad Kay",
+  "specified_date": "2026-10-29",
+  "status": "Exploratory post-V2 supplement; original results were known; rules fixed before computing these additional results; not preregistered",
+  "original_protocol_sha256": "6d3f44cede6f791542aeed2425f5325b85c01f0a2c3bf119e045f77b4a6574e5",
+  "markets": [
+    "on_demand",
+    "spot"
+  ],
+  "horizons": [
+    1,
+    3,
+    6
+  ],
+  "evaluation_start_month": "2025-01",
+  "data_end_month": "2026-09",
+  "timing_model": "persistence",
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 27826,
+  "bootstrap_primary_length": "max(3, horizon)",
+  "bootstrap_sensitivity_lengths": [
+    2,
+    3,
+    4,
+    6
+  ],
+  "bootstrap_minimum_blocks": 4,
+  "bootstrap_calendar": "Full protocol calendar, including missing endpoints and interior months; sample paired actual/nominal origin losses together in circular contiguous blocks",
+  "undefined_ratio_rule": "A zero actual mean makes the relative reduction undefined. Report the count; suppress the ratio interval if any otherwise valid draw is undefined. Never drop such draws silently.",
+  "timing_slices": [
+    "full",
+    "leave_one_provider_out",
+    "single_provider",
+    "origin_year_2025",
+    "origin_year_2026"
+  ],
+  "change_rtol": 1e-10,
+  "change_atol": 1e-12,
+  "conditional_weights": "Retain weights of the complete observed market/horizon cell. Conditional losses divide subgroup weighted losses by subgroup mass; contributions sum to the original total. No renesting within subgroups.",
+  "attrition_groups": [
+    "all",
+    "provider",
+    "gpu",
+    "origin_year",
+    "provider_gpu"
+  ],
+  "attrition_features": [
+    "last_price",
+    "quote_age_days",
+    "history_count",
+    "absolute_last_return",
+    "volatility",
+    "past_change_frequency"
+  ],
+  "attrition_rule": "Descriptive raw-case feature means by observed/late-archive/absent-key status; raw and eligible-nested-weight status shares. No imputed outcomes, inverse probability weights or claim of correcting selection bias.",
+  "benchmark_name": "frequency_damped_trend",
+  "frequency_history_window": 12,
+  "frequency_pairs": "Consecutive nominal-month pairs among the last 12 observations published no later than the primary origin, for the exact same core key. Exclude gap-spanning pairs.",
+  "benchmark_formula": "f = past changed adjacent pairs / past adjacent pairs; q_h = 1 - (1-f)^h; forecast = last_price * exp(q_h * log(damped_trend / last_price))",
+  "benchmark_no_pair_fallback": "Persistence; past_change_frequency is missing, shrinkage is zero, and fallback is explicit",
+  "benchmark_interpretation": "Fixed heuristic shrinkage, not a calibrated event probability or optimized model; no tuning or new target-based selection",
+  "benchmark_sample": "All original primary eligible cases, scored on the identical original observed targets; separate from the original five-model protocol"
+}

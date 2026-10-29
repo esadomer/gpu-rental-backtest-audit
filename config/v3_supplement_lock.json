@@ -1,0 +1,13 @@
+{
+  "supplement_sha256": "7dc78b918c8fffebd09ff67440ad23a4b9d92a285815e5af4130a0287cdc0326",
+  "frozen_at_utc": "2026-10-29T10:54:57.065762+00:00",
+  "note": "Post-V2 exploratory extension frozen before computing added results; original V2 outcomes known.",
+  "input_hashes": {
+    "results/forecast_cases.csv": "2d694f91a501e58ed9776062cbee3369dd19475d4de53197ab06a8ec1635ca27",
+    "results/day_one_actual_cases.csv": "b885fb759c83b0421aae15f670f70e3ce4fcedbd7648ff3e83d1a5d3582aaebe",
+    "results/day_one_nominal_cases.csv": "3a9def6cc749c601eeedb2ba70c36e488580e5b3088e6dc085807ff2e74aced9",
+    "results/run_manifest.json": "339ed445440c0d04824e2bcd7c5535e7ca1a674042c19895ed4c153490e5aab9",
+    "data/catalog_manifest.json": "bc8fa76cb124dde952bb5d936e307821fd8f3ee04515511aa5cedd971078e405",
+    "data/research/catalog_panel.csv": "17dd0df0bef779470926368fb0086c3b77af286fa6123eea86118db9ed165822"
+  }
+}

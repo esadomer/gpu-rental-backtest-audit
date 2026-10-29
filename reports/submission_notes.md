@@ -2,7 +2,7 @@
 
 Author name supplied: **H. Esad Kay**. No affiliation or ORCID has been invented.
 
-The project provides a completed empirical working-paper draft, a compiled PDF, a portable LaTeX source bundle and a reproducibility package. The manuscript and reproducibility materials are published at https://github.com/esadomer/gpu-rental-backtest-audit with the author's authorization. Nothing has been submitted to arXiv.
+The project provides a completed empirical working-paper draft, a compiled PDF, a portable LaTeX source bundle and a reproducibility package. The manuscript and reproducibility materials are published at https://github.com/esadomer/gpu-rental-backtest-audit with the author's authorization. Nothing has been submitted to arXiv. The author subsequently authorized publication of the complete revised manuscript and supplementary diagnostics to the same repository.
 
 ## Scientific positioning
 
@@ -15,7 +15,7 @@ A renewed inspection of Mittal's current public tree and all 44 Python scripts c
 ## Author actions before submission
 
 1. Read the complete manuscript and verify its claims, attribution and limitations; accept responsibility for the final content.
-2. Approve the final title, name, any actual affiliation, abstract, category, license and any additional release or reuse-license decisions. GitHub publication is already authorized.
+2. Approve the final title, name, any actual affiliation, abstract, category, license and any additional release or reuse-license decisions. GitHub publication of the revised research artifacts is explicitly authorized; arXiv submission remains a separate author action.
 3. Complete applicable methodology and software disclosures under arXiv's policy; the project has not silently added an authorship or tool-use declaration on the author's behalf. [Policy](https://info.arxiv.org/help/moderation/index.html#policy-for-authors-use-of-generative-ai-language-tools).
 4. Use an actual arXiv account. Endorsement may be required for a first submission or a new category; no endorsement has been obtained or presumed. [Endorsement rules](https://info.arxiv.org/help/endorsement.html).
 5. Upload the LaTeX sources and dependencies, inspect arXiv's generated PDF, resolve any compilation issues, and approve the submission. Local compilation does not verify arXiv's build environment. [TeX instructions](https://info.arxiv.org/help/submit_tex.html).

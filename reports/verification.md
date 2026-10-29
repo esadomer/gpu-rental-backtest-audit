@@ -1,5 +1,36 @@
 # Verification and independent-review record
 
+## Final publication preparation, October 29, 2026
+
+The author authorized publishing the revised preprint and full supplemental reproducibility materials to the existing repository. This supersedes the earlier local-only checkpoint. No arXiv submission is included.
+
+- **59 unit tests passed**, including six new origin-deletion boundary tests.
+- **All 94 complete-origin deletions were independently reconstructed** from the original paired case files. An independent reviewer additionally checked target month/cutoff/publication equality, omitted and retained counts, full and retained losses, percentage-point changes and concentration summaries. All checks passed.
+- **Fresh independent implementation review: PASS.** No material correctness or manuscript defect was found. The reviewer independently reran all 59 tests, the origin verifier and the supplemental verifier, and checked the publication wording. The review did not certify the later package, remote-publishing or CI steps.
+- **Final manuscript:** 13 pages compiled with Tectonic 0.17.0 and visually checked. Version labels were removed while preserving the date and explicit post-result disclosures. The benchmark caption explains that percentage comparisons use unrounded scores. No overfull boxes or unresolved references remain; the existing two underfull bibliography and environment fontconfig warnings do not affect the inspected rendering.
+- **Final clean-directory reproduction passed:** all 26 numerical CSVs reproduced byte for byte after rerunning the original experiment, supplemental diagnostics and origin deletions in a fresh output directory using registered local archives. All three independent output verifiers passed. Network retrieval was not repeated for this final check; the earlier public-download reproduction remains recorded below. See `reports/publication_reproducibility_checks.json`.
+- **Scientific interpretation:** all individual-origin deletions preserve a positive timing reduction, but July 2025 supplies 45.5% of the signed one-month on-demand loss difference. The paper reports 28.9–51.1% single-deletion estimates without treating them as confidence bounds or evidence against joint concentration.
+
+The original empirical protocol, original code and all prior numerical result CSVs remain unchanged. The new influence diagnostic has a separate post-result plan and fingerprint; it does not refit or select a forecasting model. Earlier verification records follow.
+
+## Earlier supplemental checkpoint: local revision, October 29, 2026
+
+At this earlier checkpoint the supplement remained local at the author's request; no upload or remote workflow was performed. A subsequent explicit instruction authorized the revised publication documented separately below. The earlier records below describe the original experiment and its prior public release.
+
+- **53 unit tests passed**, including 19 supplemental boundary tests for paired matching, calendar endpoints/gaps, zero-baseline bootstrap draws, original-weight conditional decomposition, eligible-weight attrition, future-record exclusion, frequency-history reconciliation and permissible reproduction-metadata changes.
+- **Independent original-output verification passed again:** 122,938 primary/sensitivity eligible cases, 93,035 observed targets and 170 summary rows. Original research scripts, protocols, source manifests and numerical CSVs are unchanged from V2.
+- **Independent V3 verification passed:** every one of 22,868 frequency forecasts was reconstructed from the extracted source history; 108 conditional-loss rows, 90 timing slices, 24 paired-bootstrap cells, 429 attrition rows and 2,574 feature-summary rows were checked. The verifier uses separate explicit weighting loops and vectorized bootstrap indexes rather than importing the implementation.
+- **Clean-directory offline reproduction passed:** copied only the registered local archives and required configuration/source scripts into a new output directory, reran the complete original experiment and supplement, then ran both independent verifiers. All **24 numerical CSVs** (16 original plus eight supplemental) match byte for byte. This repeated the complete computation, not network retrieval; the original clean public-download check is recorded below. See `reports/v3_reproducibility_checks.json`.
+- **V3 PDF:** 13 pages compiled with Tectonic 0.17.0 and all final pages visually checked. The corrected timing figure has no clipped annotation, tables fit, references resolve, repository links are clickable, and no authorial we/our remains. Two nonfatal underfull bibliography warnings and the existing fontconfig environment warning remain; no overfull boxes were reported.
+- **Independent plan review completed** before supplemental evaluation. It required horizon-aware primary blocks, full protocol-calendar endpoints and explicit undefined-ratio handling; all were adopted. The supplement was specified after V2 results were known and is explicitly exploratory.
+- **Fresh independent implementation review completed** after implementation and initial verification. No unresolved material correctness defect was found. Two reporting errors were fixed: the benchmark excess-error range is 7.0-30.1%, and absent/on-time is labeled an absent-key rate. The reviewer reran all 53 tests and the V3 verifier and confirmed that original scientific artifacts were unchanged. The reviewer did not perform the separate clean-directory run or PDF visual inspection; those were performed in the primary workflow.
+- **Reproduction-boundary correction:** a fresh original run legitimately changes runtime/timestamp metadata and lists the added scripts. The V3 loader authenticates an exact preserved original-run reference against the frozen hash and permits only those operational differences. Scientific fields, original code and empirical input bytes remain pinned. Tests reject altered scientific counts, missing/changed original code and unexpected fields. The correction changes no numerical output.
+
+The same-data block intervals are exploratory stability diagnostics, not guaranteed population confidence coverage. Changed-target strata are defined after outcomes and are not a deployable selection rule. Missing-outcome performance and novelty relative to the unavailable predecessor manuscript remain unidentified.
+
+## Original experiment and V2 record
+
+
 The empirical implementation and English working-paper draft passed the checks below. A later author-authorized editorial update removes authorial plurals, foregrounds the paired 42.0% timing result, adds the public repository link and records a deeper prior-work comparison. The numerical protocol, code and result CSVs are unchanged. No arXiv submission has occurred.
 
 ## Executed checks

@@ -1,0 +1,127 @@
+{
+  "version": "3.0",
+  "status": "Exploratory post-V2 supplement; original results were known; rules fixed before computing these additional results; not preregistered",
+  "started_at_utc": "2026-10-29T11:03:23.930295+00:00",
+  "completed_at_utc": "2026-10-29T11:03:59.638287+00:00",
+  "runtime_versions": {
+    "python": "3.12.8",
+    "numpy": "2.3.1",
+    "pandas": "2.3.1"
+  },
+  "supplement_sha256": "7dc78b918c8fffebd09ff67440ad23a4b9d92a285815e5af4130a0287cdc0326",
+  "base_run_reference_sha256": "339ed445440c0d04824e2bcd7c5535e7ca1a674042c19895ed4c153490e5aab9",
+  "protocol_hashes": {
+    "config/study_protocol.json": "6d3f44cede6f791542aeed2425f5325b85c01f0a2c3bf119e045f77b4a6574e5",
+    "config/protocol_lock.json": "27b2dd35e045088bb7eb9eb266151442868887fc66619ae7000f9c04b61df982",
+    "config/protocol_amendment_01.json": "1116b882b2028963ee17e16ec0b92d293031602770ba72000de72a039355d50b",
+    "config/v3_supplement.json": "7dc78b918c8fffebd09ff67440ad23a4b9d92a285815e5af4130a0287cdc0326",
+    "config/v3_supplement_lock.json": "78fa6edc5266d501ef13e49eb2521f0ad66a3565da917f9384414d0772431389"
+  },
+  "input_hashes": {
+    "config/v3_base_run_reference.json": "339ed445440c0d04824e2bcd7c5535e7ca1a674042c19895ed4c153490e5aab9",
+    "results/forecast_cases.csv": "2d694f91a501e58ed9776062cbee3369dd19475d4de53197ab06a8ec1635ca27",
+    "results/day_one_actual_cases.csv": "b885fb759c83b0421aae15f670f70e3ce4fcedbd7648ff3e83d1a5d3582aaebe",
+    "results/day_one_nominal_cases.csv": "3a9def6cc749c601eeedb2ba70c36e488580e5b3088e6dc085807ff2e74aced9",
+    "results/run_manifest.json": "339ed445440c0d04824e2bcd7c5535e7ca1a674042c19895ed4c153490e5aab9",
+    "data/catalog_manifest.json": "bc8fa76cb124dde952bb5d936e307821fd8f3ee04515511aa5cedd971078e405",
+    "data/research/catalog_panel.csv": "17dd0df0bef779470926368fb0086c3b77af286fa6123eea86118db9ed165822"
+  },
+  "original_code_hashes": {
+    "scripts/audit_data.py": "3901c119900e46903f0cec05d0ff3aa54d76593573e7c356c5bf579f34c70e4e",
+    "scripts/catalog_panel.py": "bbcade29fa9eb5d5492245b3333bf2513b34d6a2c944e98ab261d46575197722",
+    "scripts/fetch_catalogs.py": "85237021f31c6c2045f5de9e335624f76652812128ec794f5ecc3aa736db9776",
+    "scripts/fetch_sources.py": "8a2c6e51ab8b8372ffb7ecfe57642115b65bbfd33437e275dfee2490f78cefff",
+    "scripts/make_figures.py": "f95a7ed5d77ebb8d39d13dedb9de7f4f1d1499348c00364cfa7361deb5a3bd63",
+    "scripts/run_study.py": "4172ba719436eabf3f214a22f7d9a4ffcf8baed1e78d09ee2857e7199a5346d2",
+    "scripts/verify_results.py": "ec27c25679ad8d4ac4c85b66a4e417a71d5413cb8f42e0bda49e1e67d852c316"
+  },
+  "code_hashes": {
+    "scripts/robustness_diagnostics.py": "b1eb0e097462ac5581baeb2cd6c85b678505905ee00b6d260f447e7dab715382",
+    "scripts/run_study.py": "4172ba719436eabf3f214a22f7d9a4ffcf8baed1e78d09ee2857e7199a5346d2",
+    "scripts/catalog_panel.py": "bbcade29fa9eb5d5492245b3333bf2513b34d6a2c944e98ab261d46575197722"
+  },
+  "output_hashes": {
+    "results/v3/timing_sensitivity.csv": "7b1dda9ed258db2207b53f1a64da1aff026657d4eeeca862d437e24cd52f83a7",
+    "results/v3/paired_timing_origins.csv": "77cdf4cc973a570b3f9acc838033a8d455bc6babd425b87189510461b9c2f4b1",
+    "results/v3/timing_bootstrap.csv": "3f9631eaa3c5421fd1e3c8a3544587e335170e83fda13fbd5fde4f432b94d712",
+    "results/v3/frequency_cases.csv": "23499c9868822a1ec338ff32748a2e003b9446c6038e4f51d19a43431f3a7b39",
+    "results/v3/conditional_losses.csv": "4b862bab5b099e8eb2ae7b8983d676590372d087ab9c8dacf92109af60119977",
+    "results/v3/attrition_summary.csv": "695d79ac0a65171b71a9f17afaca3317f223c03434df98142e7782bf3eba986c",
+    "results/v3/attrition_features.csv": "732cf7facb09f02f642cb005feb7ccfe9cefc41abf383d0ac9cc9ddb51e986ee",
+    "results/v3/benchmark_summary.csv": "27750dd36a34c04b9000a33d6abb836d2368cc7b279cf60e3fa312e2df77f092"
+  },
+  "output_rows": {
+    "timing_sensitivity.csv": 90,
+    "paired_timing_origins.csv": 106,
+    "timing_bootstrap.csv": 24,
+    "frequency_cases.csv": 22868,
+    "conditional_losses.csv": 108,
+    "attrition_summary.csv": 429,
+    "attrition_features.csv": 2574,
+    "benchmark_summary.csv": 36
+  },
+  "raw_archive_hashes": {
+    "data/catalog_raw/v1_20230828.zip": "90d3009d6de982c723fcaada180429504a3299f1285a6374390b524dba56d863",
+    "data/catalog_raw/v1_20231013.zip": "4252bbfaa8b76f8c299f095f6126150923065524f35a10db94ed99d8b7058b70",
+    "data/catalog_raw/v1_20231101.zip": "561e6ed22de231283f64a41ef68f6f5bd96237b107bc675b566bba548a25db73",
+    "data/catalog_raw/v1_20231201.zip": "456f51929dd8879b6559b6b0d410fb82e88f54e5b07a746ca1c59696cb845ea7",
+    "data/catalog_raw/v1_20240101.zip": "90d9c41e570b9250668525725983445855bf7b50676c6cf88b49e187dedcec17",
+    "data/catalog_raw/v1_20240202.zip": "07573a558425f0bf951f40ff3936d9f90740a2df98649a344ffb4b2f86b17eb6",
+    "data/catalog_raw/v1_20240301.zip": "7931ca4b23116da382a1d67893bd323003ad2cf7823311a2cc7113630d5b0236",
+    "data/catalog_raw/v1_20240401.zip": "041606206b23b62e5e4a260290d9f22d84c4e2ebf67e0d07bf1cc7b4ec34bd32",
+    "data/catalog_raw/v1_20240508.zip": "1767c0bfb4cf7cd86eb2da7e9c1c91e9aa826c1972ecbe8e4ba38129bf404eea",
+    "data/catalog_raw/v1_20240602.zip": "b44ad65b26a9e6b9889e8747cee9828df564daee429a66f693688676463460b7",
+    "data/catalog_raw/v1_20240701-760.zip": "82f24ea419bd95f735dea68c31de6f651c3c1762193a9a9724bd9b3228c2c9e3",
+    "data/catalog_raw/v1_20240801-1507.zip": "4489bf4e5f946a22326f078fce04831c0cfe76411e067924fe692da7881acab3",
+    "data/catalog_raw/v1_20240902-2291.zip": "4785db406840ca639a75c53f4ef2daaf8e7d30044db20517f973f87b015f91dd",
+    "data/catalog_raw/v1_20241001-2977.zip": "e94a20840026cf38d7aa474a6b9772d81fddcbf0cd93f1b3994138846aea3788",
+    "data/catalog_raw/v1_20241101-3725.zip": "dcd31f92a89417622ecc891dcc7992eda4ca3164742bc6689cd62ef6d790f5f9",
+    "data/catalog_raw/v1_20241202-4488.zip": "be39d2d28d962063da1dca427b353bcef127fd3ff016d6bf65cbab33eaff1c8e",
+    "data/catalog_raw/v1_20250101-5196.zip": "192cc1222c89853387dee17f16836ca548e31a47e18714b3942e7ef6892ac6f8",
+    "data/catalog_raw/v1_20250203-6000.zip": "91404d8f42ff5bad9c75a1fcdec3b4563ea22ad3a058f1cda1217ae417288781",
+    "data/catalog_raw/v2_20250301-6624.zip": "694b312ee6e1f1d86060438d39a6f6838740a5a9c6dddf57c9114d8dbbb5e559",
+    "data/catalog_raw/v2_20250401-7406.zip": "77e3feac8ea116411fa51d07c7e7178a9184f333fed2699115a675e577341b22",
+    "data/catalog_raw/v2_20250501-8112.zip": "b60a0fa935c775d3b81f2f0faedb71e156f7ee1e0041fb564791a9a7fbeb8722",
+    "data/catalog_raw/v2_20250601-8860.zip": "f7ace899732f9bc63ce43de2add4902b55bd4e42b3f78ec88ccf8b9e85c5cbf2",
+    "data/catalog_raw/v2_20250701-9592.zip": "aadd94d57aa775e4c0ac0b4c99d9df857ae9958ac39f2ab442d9edb764c40e6f",
+    "data/catalog_raw/v2_20250804-10408.zip": "c677ae1571613ca748a2108bf01148afbe6140b0b7bc7f940f357f99ba153129",
+    "data/catalog_raw/v2_20250901-11078.zip": "ba83bda20421b946d6072e9f93e3bce27776343215ef885ff81845dfb58560ef",
+    "data/catalog_raw/v2_20251001-11803.zip": "fa8025679d6f4c5922bb53c9c8ac8721c7b89c0b1be5e6048e7de5a0c5961a8e",
+    "data/catalog_raw/v2_20251101-12567.zip": "94f9de1eda892ac080a82b07b42363a909af01560a84fdc9192d893d3918154f",
+    "data/catalog_raw/v2_20251201-13288.zip": "5fabae8bfb5985075378929db076e57d3210c09d0ae2ec9b5109c2b65e763b54",
+    "data/catalog_raw/v2_20260101-14037.zip": "4bdc7c2fb7d266abd72d1fe7690b51722d4217feadf5d30468c40b1a6e602ed9",
+    "data/catalog_raw/v2_20260201-14780.zip": "ba8aff2ab8b43f99540231cfca396f9921bbb916fcb9e025dcad92dafa3821d9",
+    "data/catalog_raw/v2_20260301-15428.zip": "1805266864e93dcae27325208524ebfb2bb5bbf69ae8dac6393883f6731600b2",
+    "data/catalog_raw/v2_20260401-16142.zip": "aea3665f8fa215a026f4ac2883f448cc0b073958493a33f25c6136040cda9161",
+    "data/catalog_raw/v2_20260525-17277.zip": "6d9340a391c501273b02c088463817ce681aab9e3469eaad18e1c07f663d836c",
+    "data/catalog_raw/v2_20260601-17389.zip": "bdae94975012f01e5d29e39a25d7b8cdf25edbf761b056e58b4773ceacf0155d",
+    "data/catalog_raw/v2_20260723-18322.zip": "587e46a054fa800ded116b9cd73feed90ea9113c44b884ace90f3d5d5530ba84",
+    "data/catalog_raw/v2_20260801-18509.zip": "402c33269e47f8d04498ef29d3545a8a0ce8bf8aeec181b9f11652194ffdef52",
+    "data/catalog_raw/v2_20260901-19208.zip": "26464e7ac7db5fd51d3a5a738fcede1435bf504e2c2e2e101cff4b335550b20f"
+  },
+  "raw_archives_verified": true,
+  "panel": {
+    "archives": 37,
+    "rows": 20377,
+    "raw_row_categories": {
+      "candidate": 23252,
+      "conflicting_same_snapshot_identity": 2847,
+      "duplicate_capture": 28,
+      "duplicate_provider_alias": 810,
+      "excluded_provider": 1279767,
+      "invalid_numeric_field": 39,
+      "non_target_gpu": 361129
+    },
+    "keys": 1214,
+    "strict_keys": 1826,
+    "first_month": "2023-08",
+    "last_month": "2026-09"
+  },
+  "matched_observed_timing_cases": 17065,
+  "primary_eligible_cases": 22868,
+  "primary_observed_cases": 18226,
+  "benchmark_interpretation": "Fixed heuristic shrinkage, not a calibrated event probability or optimized model; no tuning or new target-based selection",
+  "excluded_from_public_repository": [
+    "results/v3/frequency_cases.csv"
+  ]
+}
